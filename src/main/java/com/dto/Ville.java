@@ -9,12 +9,10 @@ public class Ville implements Serializable {
 	private String codePostal;
 	private String libelleAcheminement;
 	private String ligne5;
-	//	private Coordonnee coordonnee;
+	private Coordonnee coordonnee;
 
 	public Ville() {
 	}
-	
-	
 	
 	public String getCodeCommune() {
 		return codeCommune;
@@ -46,11 +44,11 @@ public class Ville implements Serializable {
 	public void setLigne5(String ligne5) {
 		this.ligne5 = ligne5;
 	}
-//	public Coordonnee getCoordonnee() {
-//		return coordonnee;
-//	}
-//	public void setCoordonnee(Coordonnee coordonnee) {
-//		this.coordonnee = coordonnee;
-//	}
+	public Coordonnee getCoordonnee() {
+		return coordonnee;
+	}
+	public void setCoordonnee(Coordonnee coordonnee) {
+		this.coordonnee = coordonnee;
+	}
 
 }
