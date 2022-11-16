@@ -2,25 +2,25 @@ package com.dto;
 
 public class Coordonnee {
 
-    private String abscisse;
-    private String ordonnee;
+    private String latitude;
+    private String longitude;
 
-    public Coordonnee(String abscisse, String ordonnee) {
-        this.abscisse = abscisse;
-        this.ordonnee = ordonnee;
+    public Coordonnee(String latitude, String longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public String getAbscisse() {
-        return abscisse;
+    public String getLatitude() {
+        return latitude;
     }
-    public void setAbscisse(String abscisse) {
-        this.abscisse = abscisse;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
-    public String getOrdonnee() {
-        return ordonnee;
+    public String getLongitude() {
+        return longitude;
     }
-    public void setOrdonnee(String ordonnee) {
-        this.ordonnee = ordonnee;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
 }

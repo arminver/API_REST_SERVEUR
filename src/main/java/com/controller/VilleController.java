@@ -1,27 +1,47 @@
 package com.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.blo.VilleBLO;
+import com.blo.VilleBloImpl;
 import com.dto.Ville;
 
 @RestController
 public class VilleController {
 	
 	@Autowired
-	VilleBLO villeBloService;
+    VilleBloImpl villeBloImplService;
 	
+	@RequestMapping(value = "/villes", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Ville> getVilles(@RequestParam (required = false, value = "codePostal") String codePostal) {
+		return villeBloImplService.getVilles(codePostal);
+	}
+
 	@RequestMapping(value = "/ville", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Ville> get(@RequestParam (required = false, value = "codePostal") String codePostal) {
-		return villeBloService.getInfoVilles(codePostal);
+	public Ville getVille(@RequestParam(value = "codeCommune") String codeCommune) {
+		return villeBloImplService.getVille(codeCommune);
 	}
+
+	@RequestMapping(value = "/addVille", method = RequestMethod.POST)
+	@ResponseBody
+	public String addVille(@RequestBody Ville ville) {
+		return villeBloImplService.addVille(ville);
+	}
+
+	@RequestMapping(value = "/updateVille", method = RequestMethod.PUT)
+	@ResponseBody
+	public String updateVille(@RequestBody Ville ville) {
+		return villeBloImplService.updateVille(ville);
+	}
+
+	@RequestMapping(value = "/deleteVille", method = RequestMethod.DELETE)
+	@ResponseBody
+	public String deleteVille(@RequestParam(value = "codeCommune") String codeCommune) {
+		return villeBloImplService.deleteVille(codeCommune);
+	}
+
 }
